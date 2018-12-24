@@ -1,0 +1,37 @@
+body {
+    background-image: url("/assets/images/superbg.jpg");
+    padding-top: 70px;
+    background-attachment: fixed; 
+    background-position: center;
+    background-size: cover;
+    font-family: 'Rokkitt', serif;
+}
+
+#navbar {
+    background-image: url("/assets/images/checkeredbg.jpg");
+}
+.btn{
+    background-color: yellow;
+    color: black;
+}
+#main-btn{
+    background-color: red;
+    color: black;
+}
+#topJumbotron {
+    color: yellow;
+    background-color: rgba(0, 0, 0, 0.664);
+}
+
+.deleteNote {
+    display: inline-block;
+}
+
+.previousNotes {
+    display: inline-block;
+    width: 90%
+}
+
+#scrape {
+    margin: 8px 0px;
+}

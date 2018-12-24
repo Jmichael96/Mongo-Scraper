@@ -1,0 +1,43 @@
+{{!-- THIS IS THE {{{body}}} for main.handlebars --}} {{!-- •••••••••• START CONTAINER •••••••••••••• --}}
+<div class="container">
+
+    {{!-- ••••••••••• START JUMBOTRON •••••••••••• --}}
+    <div id="topJumbotron" class="col-md-12 jumbotron">
+        <div class="text-center">
+            <h1>Supercross News!</h1>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+
+        {{#each articles}} 
+        <div class="panel panel-default">
+
+            <div id="{{_id}}" class="panel-heading">
+                <h2>{{this.title}}</h2>
+            </div>
+
+            <div class="panel-body">
+                <p>{{this.summary}}</p>
+                <br>
+                <div>
+                    <a href={{this.link}} class="btn" id="link-btn" target="_blank">Link!</a>
+                    <a id="save-item" class="saveArt btn btn-success save" data-id={{this._id}}>Save Article</a>
+                </div>
+            </div>
+
+        </div>
+
+        {{/each}} 
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h2>Uh Oh. Looks like we don't have any new articles.</h2>
+            </div>
+        </div>
+       
+    </div>
+</div>
+<script>
+
+</script>
