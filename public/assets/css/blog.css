@@ -6,7 +6,6 @@ body {
     background-size: cover;
     font-family: 'Rokkitt', serif;
 }
-
 #navbar {
     background-image: url("/assets/images/checkeredbg.jpg");
 }
@@ -22,16 +21,60 @@ body {
     color: yellow;
     background-color: rgba(0, 0, 0, 0.664);
 }
+.panel{
+    background-color: rgba(0, 0, 0, 0);
+}
+/* heading of panel */
+#panel-heading{
+    background-color: rgba(0, 0, 0, 0.76);
+}
+#title{
+    color: red;
+    font-size: 40px;
+    font-weight: 900;
+}
+/* body of panel */
+.panel-body{
+    background-color: rgba(204, 204, 204, 0.89);
+}
+#summary{
+    font-size: 18px;
+    font-weight: bold;
+}
+/* save article button */
+#save-item{
+    background-color: rgb(47, 255, 64);
+    color: black;
+    box-shadow: 0 0 5px #3a3a3a, 0 0 10px #535353;     
+}
+#save-item:hover{
+    background-color: rgb(255, 0, 0);
+}
+#save-item:active{
+    background-color: rgb(47, 255, 64);
+    transform: translateY(4px);
+}
+/* link button */
+#link-btn{
+    background-color: red;
+    color: black;
+    box-shadow: 0 0 5px #3a3a3a, 0 0 10px #535353;     
+}
+#link-btn:hover{
+    background-color: yellow;
+}
+#link-btn:active{
+    transform: translateY(4px);
+}
 
 .deleteNote {
     display: inline-block;
 }
-
 .previousNotes {
     display: inline-block;
     width: 90%
 }
-
 #scrape {
     margin: 8px 0px;
 }
+
