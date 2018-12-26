@@ -20,9 +20,11 @@ body {
 #topJumbotron {
     color: yellow;
     background-color: rgba(0, 0, 0, 0.664);
+    box-shadow: 0 2px 12px #000000, 0 0 15px #000000, 0 0 20px #000000;      
 }
 .panel{
     background-color: rgba(0, 0, 0, 0);
+    box-shadow: 0 2px 12px #000000, 0 0 15px #000000, 0 0 20px #000000;      
 }
 /* heading of panel */
 #panel-heading{
@@ -45,7 +47,7 @@ body {
 #save-item{
     background-color: rgb(47, 255, 64);
     color: black;
-    box-shadow: 0 0 5px #3a3a3a, 0 0 10px #535353;     
+    box-shadow: 0 1px 8px #3a3a3a, 0 0 10px #535353;     
 }
 #save-item:hover{
     background-color: rgb(255, 0, 0);
@@ -58,7 +60,7 @@ body {
 #link-btn{
     background-color: red;
     color: black;
-    box-shadow: 0 0 5px #3a3a3a, 0 0 10px #535353;     
+    box-shadow: 0 1px 8px #3a3a3a, 0 0 10px #535353;     
 }
 #link-btn:hover{
     background-color: yellow;
@@ -66,7 +68,28 @@ body {
 #link-btn:active{
     transform: translateY(4px);
 }
-
+#delete-comment{
+    background-color: red;
+    color: black;
+    box-shadow: 0 1px 8px #3a3a3a, 0 0 10px #535353;     
+}
+#delete-comment:hover{
+    background-color: yellow;
+}
+#delete-comment:active{
+    transform: translateY(4px);
+}
+#delete-one{
+    background-color: red;
+    color: black;
+    box-shadow: 0 1px 8px #3a3a3a, 0 0 10px #535353;     
+}
+#delete-one:hover{
+    background-color: yellow;
+}
+#delete-one:active{
+    transform: translateY(4px);
+}
 .deleteNote {
     display: inline-block;
 }

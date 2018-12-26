@@ -1,11 +1,27 @@
-{{!-- THIS IS THE {{{body}}} for main.handlebars --}} {{!-- •••••••••• START CONTAINER •••••••••••••• --}}
+{{!-- START NAVBAR --}}
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="">
+            <div class="navbar-header justify-content-center">
+                <a class="btn" id="main-btn" href="/">Mongo Scraper</a>
+                <a class="btn" href="/">Home</a>
+                <a class="btn" href="/saved">Saved Articles</a>
+                <a class="btn" id="scrape">Scrape Articles</a>
+                <a href="/clear" class="btn btn-outline-primary" role="button" aria-disabled="true">Clear</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+
+            </div>
+        </div>
+    </nav>
+{{!-- CLOSE NAVBAR --}}
+
 <div class="container">
 
     {{!-- ••••••••••• START JUMBOTRON •••••••••••• --}}
     <div id="topJumbotron" class="col-md-12 jumbotron">
         <div class="text-center">
             <h1>
-                <u>Supercross News!</u>
+                <u>SUPERCROSS NEWS!</u>
             </h1>
         </div>
     </div>
@@ -26,7 +42,7 @@
                 </div>
                 <hr>
                 <a id="link-btn" href={{this.link}} class="btn" id="link-btn" target="_blank">Link!</a>
-                <a href="/save/{{id}}" class="btn btn-primary" role="button" aria-disabled="true">Save article</a>
+                <a href="/save/{{id}}" class="btn" id="save-item" role="button" aria-disabled="true">Save article</a>
             </div>
         </div>
         {{/each}}

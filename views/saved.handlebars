@@ -1,17 +1,31 @@
-<!--Saved Articles Page-->
+{{!-- START NAVBAR --}}
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="">
+            <div class="navbar-header justify-content-center">
+                <a class="btn" id="main-btn" href="/">Mongo Scraper</a>
+                <a class="btn" href="/">Home</a>
+                <a class="btn" href="/saved">Saved Articles</a>
+                <a class="btn" id="scrape">Scrape Articles</a>
+                <a href="clear-all" class="btn btn-outline-primary scrape-clear-btn" role="button" aria-disabled="true">Clear</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
 
+            </div>
+        </div>
+    </nav>
+{{!-- CLOSE NAVBAR --}}
+<!--Saved Articles Page-->
 <div class="container">
 
     <div id="topJumbotron" class="col-md-12 jumbotron">
         <div class="text-center">
-            <h1>Saved Articles</h1>
-            <a href="clear-all" class="btn btn-outline-primary scrape-clear-btn" role="button" aria-disabled="true">Clear</a>
+            <h1><u>SAVED ARTICLES</u></h1>
         </div>
     </div>
     <div class="col-md-12">
+        {{#if saved}}
         {{#each saved}}
         <div class="panel">
-            <a href="/delete-one/{{id}}" class="btn btn-outline-danger" id="delete-one" role="button" aria-disabled="true">X</a>
             <div id="panel-heading" id="{{_id}}" class="panel-heading">
                 <p class="text-center" id="title">{{title}}</p>
             </div>
@@ -29,18 +43,20 @@
                         <input id="noteInput" name="noteId" type="text" class="form-control">
                         <br>
                         <a id="link-btn" href={{this.link}} class="btn" id="link-btn" target="_blank">Link!</a>
-                        <button type="button" method="get" href="/delete-one/{{id}}" class="btn btn-danger delete" data-id={{this._id}}>Delete Article</button>
-                        <button type="submit" class="btn btn-outline-primary" id="noteBtn">Save comment</button>
-                        <a href="delete-note/{{id}}" class="btn btn-outline-danger" role="button" aria-disabled="true">Delete comment</a>
+                        <button type="submit" class="btn btn-outline-primary" id="save-item">Add Comment</button>
+                        <a href="delete-note/{{id}}" class="btn btn-outline-danger" id="delete-comment" role="button" aria-disabled="true">Delete comment</a>
+                        <a href="/delete-one/{{id}}" class="btn btn-outline-danger" id="delete-one" role="button" aria-disabled="true">Delete Article</a>
                     </div>
                 </form>
             </div>
         </div>
         {{/each}}
+        {{/if}}
+
         <div class="panel panel-default">
             <div class="panel-body">
-                <h4>You have no saved articles.</h4>
+                <h4>You have no other saved articles.</h4>
             </div>
-        </div>
+        </div>  
     </div>
 </div>
