@@ -8,10 +8,18 @@ body {
 }
 #navbar {
     background-image: url("/assets/images/checkeredbg.jpg");
+    box-shadow: 0 2px 12px #000000, 0 0 15px #000000, 0 0 20px #000000;      
 }
 .btn{
     background-color: yellow;
     color: black;
+    box-shadow: 0 1px 8px #3a3a3a, 0 0 10px #535353;     
+}
+.btn:hover{
+    background-color:red;
+}
+.btn:active{
+    transform: translateY(4px);
 }
 #main-btn{
     background-color: red;
