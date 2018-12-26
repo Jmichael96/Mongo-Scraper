@@ -8,128 +8,13 @@ $("#scrape").on("click", function() {
         window.location = "/"
     })
 });
-//Set clicked nav option to active
-$(".navbar-nav li").click(function() {
-   $(".navbar-nav li").removeClass("active");
-   $(this).addClass("active");
-});
-
-//Handle Save Article button
-$(document).on('click','.saveArt',function(){
-    var thisId = $(this).attr('data-id');
-    console.log(thisId);
-    $.ajax({
-      method: 'POST',
-      url: 'api/savedArticles/'+ thisId
-    }).then(function(data){
-      console.log(data);
-      window.location.reload();
-    });
-  });
-
 //Handle Delete Article button
-$(".delete").on("click", function() {
+$("#delete-one").on("click", function() {
     var thisId = $(this).attr("data-id");
     $.ajax({
         method: "POST",
-        url: "/articles/delete/" + thisId
+        url: "/delete-one/" + thisId
     }).done(function(data) {
-        window.location = "/saved"
-    })
-});
-
-//Handle Save Note button
-// $(".saveNote").on("click", function() {
-//     var thisId = $(this).attr("data-id");
-//     if (!$("#noteText" + thisId).val()) {
-//         alert("please enter a note to save")
-//     }else {
-//       $.ajax({
-//             method: "POST",
-//             url: "/notes/save/" + thisId,
-//             data: {
-//               text: $("#noteText" + thisId).val()
-//             }
-//           }).done(function(data) {
-//               // Log the response
-//               console.log(data);
-//               // Empty the notes section
-//               $("#noteText" + thisId).val("");
-//               $(".modalNote").modal("hide");
-//               window.location = "/saved"
-//           });
-//     }
-// });
-
-// Whenever someone clicks 
-$(document).on("click", "#add-note", function() {
-    // Empty the notes from the note section
-    $("#notes").empty();
-    // Save the id from the p tag
-    var thisId = $(this).attr("data-id");
-  
-    // Now make an ajax call for the Article
-    $.ajax({
-      method: "GET",
-      url: "/notes/save/" + thisId
-    })
-      // With that done, add the note information to the page
-      .then(function(data) {
-        console.log(data);
-        // The title of the article
-        $("#notes").append("<h2>" + data.title + "</h2>");
-        // A textarea to add a new note body
-        $("#notes").append("<textarea id='bodyinput' name='body'></textarea>");
-        // A button to submit a new note, with the id of the article saved to it
-        $("#notes").append("<button data-id='" + data._id + "' id='savenote'>Save Note</button>");
-  
-        // If there's a note in the article
-        if (data.note) {
-          // Place the title of the note in the title input
-          $("#titleinput").val(data.note.title);
-          // Place the body of the note in the body textarea
-          $("#bodyinput").val(data.note.body);
-        }
-      });
-  });
-
-  // When you click the savenote button
-$(document).on("click", "#savenote", function() {
-    // Grab the id associated with the article from the submit button
-    var thisId = $(this).attr("data-id");
-  
-    // Run a POST request to change the note, using what's entered in the inputs
-    $.ajax({
-      method: "POST",
-      url: "/notes/save/" + thisId,
-      data: {
-        // Value taken from note textarea
-        body: $("#bodyinput").val()
-      }
-    })
-      // With that done
-      .then(function(data) {
-        // Log the response
-        console.log(data);
-        // Empty the notes section
-        $("#notes").empty();
-      });
-  
-    // Also, remove the values entered in the input and textarea for note entry
-    $("#titleinput").val("");
-    $("#bodyinput").val("");
-  });
-
-//Handle Delete Note button
-$(".deleteNote").on("click", function() {
-    var noteId = $(this).attr("data-note-id");
-    var articleId = $(this).attr("data-article-id");
-    $.ajax({
-        method: "DELETE",
-        url: "/notes/delete/" + noteId + "/" + articleId
-    }).done(function(data) {
-        console.log(data)
-        $(".modalNote").modal("hide");
         window.location = "/saved"
     })
 });

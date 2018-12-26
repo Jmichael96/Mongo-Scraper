@@ -1,11 +1,11 @@
 // Require mongoose
 const mongoose = require("mongoose");
-const Note = require("./Note");
+
 // Create Schema class
-var Schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
 // Create article schema
-var ArticleSchema = new Schema({
+const ArticleSchema = new Schema({
   title: {
     type: String,
     required: true
@@ -22,10 +22,10 @@ var ArticleSchema = new Schema({
     type: String,
     default: false
   },
-  note: [{
-     type: Schema.Types.ObjectId,
-     ref: "Note"
-  }]
+  note: {
+     type: String,
+     required: false
+  }
 });
 
 // Create the Article model with the ArticleSchema

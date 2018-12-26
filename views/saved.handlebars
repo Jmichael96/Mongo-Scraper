@@ -5,44 +5,42 @@
     <div id="topJumbotron" class="col-md-12 jumbotron">
         <div class="text-center">
             <h1>Saved Articles</h1>
+            <a href="clear-all" class="btn btn-outline-primary scrape-clear-btn" role="button" aria-disabled="true">Clear</a>
         </div>
     </div>
-
     <div class="col-md-12">
-
-        {{#if notes}}
-        {{#each notes}}
-        <p>{{this.title}}</p>
-        <p>{{this.body}}</p>
-        {{/each}}
-        {{/if}}
-        {{#if article}} {{#each article}}
+        {{#each saved}}
         <div class="panel">
-
+            <a href="/delete-one/{{id}}" class="btn btn-outline-danger" id="delete-one" role="button" aria-disabled="true">X</a>
             <div id="panel-heading" id="{{_id}}" class="panel-heading">
-                <p class="text-center" id="title">{{this.title}}</p>
+                <p class="text-center" id="title">{{title}}</p>
             </div>
-
             <div class="panel-body">
-                <p class="text-center" id="summary">{{this.summary}}</p>
+                <p class="text-center" id="summary">{{summary}}</p>
                 <br>
+                <p>Comment: {{note}}
+                </p>
                 <div>
-                    <a id="link-btn" href={{this.link}} class="btn" id="link-btn" target="_blank">Link!</a>
-                    <button type="button" class="btn btn-success addNote" data-toggle="modal" data-target="#noteModal{{this._id}}" data-id={{this._id}}>Add a Note</button>
-                    <button type="button" class="btn btn-danger delete" data-id={{this._id}}>Delete</button>
                 </div>
+                <hr>
+                <form action='note/{{id}}' method='post'>
+                    <div class="form-group">
+                        <label for="noteFormControlInput">Add a comment</label>
+                        <input id="noteInput" name="noteId" type="text" class="form-control">
+                        <br>
+                        <a id="link-btn" href={{this.link}} class="btn" id="link-btn" target="_blank">Link!</a>
+                        <button type="button" method="get" href="/delete-one/{{id}}" class="btn btn-danger delete" data-id={{this._id}}>Delete Article</button>
+                        <button type="submit" class="btn btn-outline-primary" id="noteBtn">Save comment</button>
+                        <a href="delete-note/{{id}}" class="btn btn-outline-danger" role="button" aria-disabled="true">Delete comment</a>
+                    </div>
+                </form>
             </div>
         </div>
-
-        {{/each}} {{else}}
+        {{/each}}
         <div class="panel panel-default">
             <div class="panel-body">
                 <h4>You have no saved articles.</h4>
             </div>
         </div>
-        {{/if}}
     </div>
 </div>
-
-<!--Clicked Notes Modal-->
-{{#each article}} {{/each}}

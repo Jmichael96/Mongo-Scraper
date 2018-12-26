@@ -4,46 +4,36 @@
     {{!-- ••••••••••• START JUMBOTRON •••••••••••• --}}
     <div id="topJumbotron" class="col-md-12 jumbotron">
         <div class="text-center">
-            <h1><u>Supercross News!</u></h1>
+            <h1>
+                <u>Supercross News!</u>
+            </h1>
         </div>
     </div>
-
     <div class="col-md-12">
-
-        {{#each articles}} 
+        {{#each articles}}
         <div class="panel">
-
             <div id="panel-heading" id="{{_id}}" class="panel-heading">
                 <p class="text-center" id="title">{{this.title}}</p>
             </div>
-
             <div class="panel-body">
                 <p class="text-center" id="summary">{{this.summary}}</p>
                 <br>
                 <div id="notes"></div>
-                {{#if notes}}
-                {{#each notes}}
-                        <p>{{this.body}}</p>
-                {{/each}}
-                {{/if}}
+                {{#if notes}} {{#each notes}}
+                <p>{{this.body}}</p>
+                {{/each}} {{/if}}
                 <div>
-                    <a id="link-btn" href={{this.link}} class="btn" id="link-btn" target="_blank">Link!</a>
-                    <a id="save-item" class="saveArt btn save" data-id={{this._id}}>Save Article</a>
-                    <a id="add-note" class="btn" data-id={{this._id}}>Add Note</a>
                 </div>
+                <hr>
+                <a id="link-btn" href={{this.link}} class="btn" id="link-btn" target="_blank">Link!</a>
+                <a href="/save/{{id}}" class="btn btn-primary" role="button" aria-disabled="true">Save article</a>
             </div>
         </div>
-
-        {{/each}} 
-
+        {{/each}}
         <div class="panel panel-default">
             <div class="panel-body">
                 <h2>Uh Oh. Looks like we don't have any new articles.</h2>
             </div>
         </div>
-       
     </div>
 </div>
-<script>
-
-</script>
