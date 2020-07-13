@@ -1,25 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <!--jQuery Link-->
-        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-        <!--Bootstrap Links-->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <!-- LINK TO GOOGLE FONTS -->
-        <link href="https://fonts.googleapis.com/css?family=Rokkitt:600" rel="stylesheet">
-        {{!-- bootstrap cdn --}}
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <!--CSS Style Sheet-->
-        <link rel="stylesheet" href="/assets/css/blog.css" type="text/css" />
-        <title>Mongo Article</title>
-    </head>
-    <body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="MongoDB web scraper!" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Jeffrey VanHorn" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>MongoDB Scraper</title> 
+    <!-- LINK TO GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Rokkitt:600" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!--CSS Style Sheet-->
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+
+</head>
+
+<body>
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a href="/"><button>Home</button></a>
+                </li>
+                <li class="nav-item">
+                    <a href="/saved"><button>Saved Articles</button></a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" id="scrape"><button>Scrape Articles</button></a>
+                </li>
+                <li class="nav-item">
+                    <a id="clearBtn" href="#"><button>Clear</button></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
     {{{ body }}}
 
-        <!-- JS Link-->
-        <script src="/assets/js/app.js"></script>
-    </body>
+    <!--jQuery Link-->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <!-- Optional JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+    <!-- JS Link-->
+    <script src="/assets/js/app.js"></script>
+
+</body>
+
 </html>

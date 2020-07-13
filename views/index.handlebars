@@ -1,49 +1,26 @@
-{{!-- START NAVBAR --}}
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="">
-            <div class="navbar-header justify-content-center">
-                <a class="btn" id="main-btn" href="/">Mongo Scraper</a>
-                <a class="btn" href="/">Home</a>
-                <a class="btn" href="/saved">Saved Articles</a>
-                <a class="btn" id="scrape">Scrape Articles</a>
-                <a href="/clear" class="btn btn-outline-primary" role="button" aria-disabled="true">Clear</a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-            </div>
+<h1>Supercross News</h1>
+
+<article id="cardWrap">
+    {{#if articles}}
+    <div id="renderArticles"></div>
+    {{!-- <div class="articleCard" id="{{this._id}}"
+        style="background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url({{this.image}});">
+        <div class="contentWrap">
+            <p class="cardDate">{{this.date}}</p>
+            <h4 class="cardTitle">{{this.title}}</h4>
         </div>
-    </nav>
-{{!-- CLOSE NAVBAR --}}
-<div class="container">
-    <div id="topJumbotron" class="col-md-12 jumbotron">
-        <div class="text-center">
-            <h1>
-                <u>SUPERCROSS NEWS!</u>
-            </h1>
+        <div class="btnWrap">
+            <a data-id="{{id}}" id="save-item"><button class="saveBtn" type="button">SAVE</button></a>
+            <a href="{{this.link}}" target="_blank"><button class="linkBtn" type="button">VIEW SOURCE</button></a>
         </div>
-    </div>
-    <div class="col-md-12">
-        {{!-- iterates through articles to display --}}
-        {{#each articles}}
-        <div class="panel">
-            <div id="panel-heading" id="{{_id}}" class="panel-heading">
-                {{!-- displays title --}}
-                <p class="text-center" id="title">{{this.title}}</p>
-            </div>
-            <div class="panel-body">
-                {{!-- displays summary of article --}}
-                <p class="text-center" id="summary">{{this.summary}}</p>
-                <hr>
-                {{!-- buttons for article layout --}}
-                <a id="link-btn" href={{this.link}} class="btn" id="link-btn" target="_blank">Link!</a>
-                <a href="/save/{{id}}" class="btn" id="save-item" role="button" aria-disabled="true">Save article</a>
-            </div>
-        </div>
-        {{/each}}
-        {{!-- to display that there are no more articles --}}
-        <div class="panel panel-default">
-            <div class="panel-body">
-                <h2>Uh Oh. Looks like we don't have any new articles.</h2>
-            </div>
+    </div> --}}
+
+    {{else}}
+    {{!-- to show there are no more articles to display --}}
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <h4>You have no other saved articles.</h4>
         </div>
     </div>
-</div>
+    {{/if}}
+</article>

@@ -1,66 +1,31 @@
-{{!-- START NAVBAR --}}
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="">
-            <div class="navbar-header justify-content-center">
-                <a class="btn" id="main-btn" href="/">Mongo Scraper</a>
-                <a class="btn" href="/">Home</a>
-                <a class="btn" href="/saved">Saved Articles</a>
-                <a class="btn" id="scrape">Scrape Articles</a>
-                <a href="clear-all" class="btn btn-outline-primary scrape-clear-btn" role="button" aria-disabled="true">Clear</a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-            </div>
-        </div>
-    </nav>
-{{!-- CLOSE NAVBAR --}}
-<!--Saved Articles Page-->
 <div class="container">
-    <div id="topJumbotron" class="col-md-12 jumbotron">
-        <div class="text-center">
-            <h1><u>SAVED ARTICLES</u></h1>
-        </div>
-    </div>
+    <h1>SAVED ARTICLES</h1>
+    <button id="unsaveAll" type="button">Unsave All</button>
     <div class="col-md-12">
         {{!-- checks if there are saved articles --}}
-        {{#if saved}}
-        {{#each saved}}
-        <div class="panel">
-            <div id="panel-heading" id="{{_id}}" class="panel-heading">
-                {{!-- displays title --}}
-                <p class="text-center" id="title">{{title}}</p>
+        {{#if savedArticles}}
+        {{#each savedArticles}}
+        <div class="articleCard" id="{{this._id}}"
+            style="background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url({{this.image}});">
+            <div class="contentWrap">
+                <p class="cardDate">{{this.date}}</p>
+                <h4 class="cardTitle">{{this.title}}</h4>
             </div>
-            <div class="panel-body">
-                {{!-- displays summary --}}
-                <p class="text-center" id="summary">{{summary}}</p>
-                <br>
-                {{!-- displays note if there is one --}}
-                <p>Comment: {{note}}
-                </p>
-                <div>
-                </div>
-                <hr>
-                {{!-- form for creating note --}}
-                <form action='note/{{id}}' method='post'>
-                    <div class="form-group">
-                        <label for="noteFormControlInput">Add a comment</label>
-                        <input id="noteInput" name="noteId" type="text" class="form-control">
-                        <br>
-                        {{!-- button layout for article --}}
-                        <a id="link-btn" href={{this.link}} class="btn" id="link-btn" target="_blank">Link!</a>
-                        <button type="submit" class="btn btn-outline-primary" id="save-item">Add Comment</button>
-                        <a href="delete-note/{{id}}" class="btn btn-outline-danger" id="delete-comment" role="button" aria-disabled="true">Delete comment</a>
-                        <a href="/delete-one/{{id}}" class="btn btn-outline-danger" id="delete-one" role="button" aria-disabled="true">Delete Article</a>
-                    </div>
-                </form>
+            <div class="btnWrap">
+                <a data-id="{{id}}" id="unsaveArticle"><button class="saveBtn" type="button">DELETE</button></a>
+                <a href="{{this.link}}" target="_blank"><button class="linkBtn" type="button">VIEW SOURCE</button></a>
             </div>
         </div>
         {{/each}}
-        {{/if}}
+
+        {{else}}
         {{!-- to show there are no more articles to display --}}
         <div class="panel panel-default">
             <div class="panel-body">
                 <h4>You have no other saved articles.</h4>
             </div>
-        </div>  
+        </div>
+        {{/if}}
+
     </div>
 </div>

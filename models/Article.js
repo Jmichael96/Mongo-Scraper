@@ -1,31 +1,30 @@
 // Require mongoose
 const mongoose = require("mongoose");
 
-// Create Schema class
-const Schema = mongoose.Schema;
-
 // Create article schema
-const ArticleSchema = new Schema({
+const ArticleSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true
   },
-  summary: {
-    type: String,
-    required: true
-  },
   link: {
-    type: String,
-    required: true
+    type: String
+  },
+  image: {
+    type: String
+  },
+  date: {
+    type: String
   },
   saved: {
     type: Boolean,
     default: false
   },
-  note: {
-     type: String,
-     required: false
-  }
+  comment: [
+    {
+      type: String,
+    },
+  ]
 });
 
 // Create the Article model with the ArticleSchema

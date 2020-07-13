@@ -1,0 +1,62 @@
+body {
+    background-color: rgb(173, 173, 173);
+    background-image: url('../images/bg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+#navbar {
+    background-color: white;
+}
+
+/* wrap surrounding each card */
+#cardWrap {
+    height: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-content: flex-start;
+}
+
+.articleCard {
+    width: 24rem;
+    height: 15rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin: 1rem;
+    position: relative;
+    border-radius: 2px;
+    box-shadow: 0 5px 10px rgb(133, 133, 133);
+}
+
+/* card title */
+.cardTitle {
+    color: white;
+    margin: 3.5rem 0 0 .5rem;
+}
+/* card date */
+.cardDate {
+    color: white;
+    margin: .2rem 0 0 .5rem;
+}
+/* button wrapper for card */
+.btnWrap {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+/* save button */
+.saveBtn {
+    background-color: rgb(214, 214, 214);
+    border: 1px solid rgb(214, 214, 214);
+    border-radius: 2px;
+}
+/* link button */
+.linkBtn {
+    background-color: rgb(12, 109, 200);
+    border: 1px solid rgb(12, 109, 200);
+    border-radius: 2px;
+}
