@@ -4,19 +4,7 @@
     <div class="col-md-12">
         {{!-- checks if there are saved articles --}}
         {{#if savedArticles}}
-        {{#each savedArticles}}
-        <div class="articleCard" id="{{this._id}}"
-            style="background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url({{this.image}});">
-            <div class="contentWrap">
-                <p class="cardDate">{{this.date}}</p>
-                <h4 class="cardTitle">{{this.title}}</h4>
-            </div>
-            <div class="btnWrap">
-                <a data-id="{{id}}" id="unsaveArticle"><button class="saveBtn" type="button">DELETE</button></a>
-                <a href="{{this.link}}" target="_blank"><button class="linkBtn" type="button">VIEW SOURCE</button></a>
-            </div>
-        </div>
-        {{/each}}
+        <div id="renderSaved" class="row justify-content-center"></div>
 
         {{else}}
         {{!-- to show there are no more articles to display --}}

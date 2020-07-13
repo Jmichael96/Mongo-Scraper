@@ -34,12 +34,21 @@ router.get('/scrape', (req, res, next) => {
       });
     })
 });
-// @route GET api/article/all
+
+// @route GET api/article/all_articles
 // @desc fetch all articles
 router.get('/all_articles', (req, res, next) => {
   db.Article.find()
     .then((articles) => {
-      res.status(201).json(articles);
+      // creating an empty array to push all articles that are not saved
+      let arr = [];
+      // iterating over articles to find all non-saved articles
+      for (let i = 0; i < articles.length; i++) {
+          if (articles[i].saved === false) {
+              arr.push(articles[i]);
+          }
+      }
+      res.status(201).json(arr);
     })
     .catch((err) => {
       res.status(500).json({
@@ -48,6 +57,27 @@ router.get('/all_articles', (req, res, next) => {
     });
 });
 
+// @route GET api/article/all_saved
+// @desc fetch all saved articles
+router.get('/all_saved', (req, res, next) => {
+  db.Article.find()
+    .then((articles) => {
+      // creating an empty array to push all articles that are not saved
+      let arr = [];
+      // iterating over articles to find all non-saved articles
+      for (let i = 0; i < articles.length; i++) {
+          if (articles[i].saved === true) {
+              arr.push(articles[i]);
+          }
+      }
+      res.status(201).json(arr);
+    })
+    .catch((err) => {
+      res.status(500).json({
+        serverMsg: 'Error fetching articles'
+      });
+    });
+});
 // @route DELETE api/article/clear
 // @desc delete all the article data
 router.delete('/clear', (req, res, next) => {
@@ -129,7 +159,8 @@ router.put('/unsave_all', (req, res, next) => {
       })
       throw err;
     });
-})
+});
+
 
 
 module.exports = router;
