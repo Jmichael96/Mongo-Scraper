@@ -11,7 +11,8 @@
 - CSS
 - Mongoose
 - Morgan
-![mongo article](https://user-images.githubusercontent.com/40511023/50428122-333a4580-087a-11e9-9def-3683f6eee722.jpg)
+![mongodb_scraper](https://user-images.githubusercontent.com/40511023/87464053-18ecc780-c5d8-11ea-9564-6abc687ba0fa.jpg)
+
 ## ABOUT
 An application that used Axios and Cheerio to scrape off another website, store it into a MongoDB Database and display it on the on the page. Mongoose is used to create the collections for this project and allow the user to save thier favorite articles, as well as 
 add comments to the articles. Using Handlebars to grab the data and display it, the user can click on the "link" button and 
