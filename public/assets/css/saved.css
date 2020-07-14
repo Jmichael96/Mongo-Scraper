@@ -1,12 +1,52 @@
+/* saved heading for saved page */
+
+#savedHeading {
+    background-color: rgb(12, 109, 200);
+    width: 100%;
+    height: 6rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-content: center;
+    margin-top: 1rem;
+    margin-bottom: .5rem;
+    border-radius: 3px;
+    box-shadow: 0 5px 10px rgb(148, 148, 148);
+    position: relative;
+}
+
+/* title inside the heading */
+
+#savedHeading>h1 {
+    font-weight: 700;
+    color: white;
+}
+
+/* unsave all button */
+
+#unsaveAll {
+    position: absolute;
+    bottom: -.8rem;
+    left: 50%;
+    margin-left: -48px;
+    border: 1px solid rgb(214, 214, 214);
+    background-color: rgb(214, 214, 214);
+    box-shadow: 0 2px 5px rgb(122, 122, 122);
+    border-radius: 3px;
+}
+
 /* saved wrap including the comment section for the post */
+
 .savedWrap {
-    background-color: rgb(246, 246, 246);
+    background-color: rgba(255, 255, 255, 0);
     width: 31rem;
     margin: 1rem;
-    box-shadow: 0 5px 10px rgb(133, 133, 133);
+    box-shadow: 0 3px 7px rgb(146, 146, 146);
+    border-radius: 3px;
 }
 
 /* saved card */
+
 .savedCard {
     width: 100%;
     height: 19rem;
@@ -15,46 +55,106 @@
     background-size: cover;
     position: relative;
     border-radius: 2px;
+    margin-bottom: 1rem;
 }
 
 /* card title */
+
 .savedCardTitle {
     color: white;
     margin: 3.5rem 0 0 .5rem;
 }
+
 /* card date */
+
 .savedCardDate {
     color: white;
     margin: .2rem 0 0 .5rem;
 }
+
 /* button wrapper for card */
+
 .savedCardBtnWrap {
     position: absolute;
     bottom: 10px;
     left: 10px;
 }
-/* save button */
+
+/* unsave an article button */
+
 .unsaveBtn {
     background-color: rgb(214, 214, 214);
     border: 1px solid rgb(214, 214, 214);
     border-radius: 2px;
 }
+
 /* link button */
+
 .linkBtn {
     background-color: rgb(12, 109, 200);
     border: 1px solid rgb(12, 109, 200);
     border-radius: 2px;
 }
-/* comment section wrap */
-.commentSection {
 
-}
+/* comment section wrap */
+
+.commentSection {}
+
 /* div that wraps both the input and button element */
+
 .inputWrap {
     display: flex;
+    padding: .5rem;
 }
 
 /* input element */
-#commentInput {
+
+#comment {
     width: 100%;
+    border: 1px solid black;
+    border-radius: 3px;
+    color: black;
+}
+
+/* submit comment button */
+
+#submitComment {
+    border: 1px solid rgb(12, 109, 200);
+    border-radius: 3px;
+    background-color: rgb(12, 109, 200);
+    color: white;
+}
+
+/* unordered list style */
+
+.commentList {
+    list-style-type: none;
+}
+
+/* list in the ul element */
+
+.commentText {
+    margin-left: -2rem;
+    margin-right: 1rem;
+}
+
+/* delete comment button */
+
+.deleteComment {
+    float: right;
+    border: none;
+    background-color: transparent;
+    color: rgb(122, 0, 0);
+    font-weight: 600;
+    -moz-transition: transform .8s ease-in-out;
+    -o-transition: transform .8s ease-in-out;
+    -webkit-transition: -webkit-transform .8s ease-in-out;
+    transition: transform .8s ease-in-out;
+}
+
+.deleteComment:hover {
+    -moz-transition: transition rotate(360deg);
+    -o-transition: transition rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
 }

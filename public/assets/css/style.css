@@ -8,17 +8,46 @@ body {
 }
 
 #navbar {
-    background-color: white;
+    background-color: rgb(214, 214, 214);;
+    box-shadow: 0 2px 5px rgb(158, 158, 158);
+}
+/* navigation buttons */
+.navBtn {
+    margin: 0 .3rem 0 .3rem;
+    background-color: rgb(12, 109, 200);
+    color: white;
+    border: 1px solid rgb(12, 109, 200);
+    border-radius: 3px;
+    padding-bottom: .2rem;
+    -moz-transition: color .3s ease-in-out;
+    -webkit-transition: color .3s ease-in-out;
+    -o-transition: color .3s ease-in-out;
+    transition: color .3s ease-in-out;
+}
+.navBtn:hover {
+    color: black;
+}
+/* heading for the home page */
+
+#indexHeading {
+    background-color: rgb(12, 109, 200);
+    width: 100%;
+    height: 6rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-content: center;
+    margin-top: 1rem;
+    border-radius: 3px;
+    box-shadow: 0 5px 10px rgb(148, 148, 148);
+}
+
+#indexHeading > h1 {
+    font-weight: 700;
+    color: white;
 }
 
 /* wrap surrounding each card */
-#cardWrap {
-    /* height: 100%;
-    display: inline-flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-    align-content: flex-start; */
-}
 
 .articleCard {
     width: 24rem;
@@ -33,30 +62,45 @@ body {
 }
 
 /* card title */
+
 .cardTitle {
     color: white;
     margin: 3.5rem 0 0 .5rem;
 }
+
 /* card date */
+
 .cardDate {
     color: white;
     margin: .2rem 0 0 .5rem;
 }
+
 /* button wrapper for card */
+
 .btnWrap {
     position: absolute;
     bottom: 10px;
     left: 10px;
 }
+
 /* save button */
+
 .saveBtn {
     background-color: rgb(214, 214, 214);
     border: 1px solid rgb(214, 214, 214);
     border-radius: 2px;
 }
+
 /* link button */
+
 .linkBtn {
     background-color: rgb(12, 109, 200);
     border: 1px solid rgb(12, 109, 200);
     border-radius: 2px;
+}
+
+/* no article section */
+.noArticles>h4 {
+    text-align: center;
+    margin-top: 2rem;
 }

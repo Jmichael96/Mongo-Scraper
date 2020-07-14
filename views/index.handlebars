@@ -1,14 +1,16 @@
-<h1>Supercross News</h1>
+<div class="container">
+    <article id="indexHeading">
+        <h1>SUPERCROSS NEWS</h1>
+    </article> 
+</div>
 
 <article id="cardWrap" class="container-fluid">
     {{#if articles}}
-        <div id="renderArticles" class="row justify-content-center"></div>
+    <div id="renderArticles" class="row justify-content-center"></div>
     {{else}}
     {{!-- to show there are no more articles to display --}}
-    <div class="panel panel-default">
-        <div class="panel-body">
-            <h4>You have no other saved articles.</h4>
-        </div>
-    </div>
+        <section class="noArticles">
+            <h4>THERE ARE NO ARTICLES AT THIS TIME. TRY SCRAPING OR SAVING AN ARTICLE.</h4>
+        </section>
     {{/if}}
 </article>

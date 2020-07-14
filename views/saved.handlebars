@@ -1,6 +1,9 @@
 <div class="container">
-    <h1>SAVED ARTICLES</h1>
-    <button id="unsaveAll" type="button">Unsave All</button>
+    <article id="savedHeading">
+        <h1>SAVED ARTICLES</h1>
+        <button id="unsaveAll" type="button">UNSAVE ALL</button>
+    </article>
+
     <div class="col-md-12">
         {{!-- checks if there are saved articles --}}
         {{#if savedArticles}}
@@ -8,11 +11,9 @@
 
         {{else}}
         {{!-- to show there are no more articles to display --}}
-        <div class="panel panel-default">
-            <div class="panel-body">
-                <h4>You have no other saved articles.</h4>
-            </div>
-        </div>
+        <section class="noArticles">
+            <h4>THERE ARE NO ARTICLES AT THIS TIME. TRY SCRAPING OR SAVING AN ARTICLE.</h4>
+        </section>
         {{/if}}
 
     </div>

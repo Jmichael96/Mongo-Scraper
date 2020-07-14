@@ -40,6 +40,17 @@ window.onload = function () {
                 let renderArea = document.getElementById('renderSaved');
 
                 renderArea.innerHTML = res.map((item) => {
+                    // iterating over comments for articles and then rendering the string in the return statement
+                    let commentString = ``;
+                    if (item.comments.length >= 1) {
+                        let comments = item.comments;
+                        for (let i = 0; i < comments.length; i++) {
+                            commentString += `<li class="commentText">${comments[i].comment} <button onclick="deleteComment('${item._id}', '${comments[i]._id}')" class="deleteComment">X</button> <hr /></li>`
+                        }
+                    } else {
+                        commentString = ``;
+                    }
+                    
                     return `
                     <article class="savedWrap">
                         <div class="savedCard" id="{{this._id}}"
@@ -59,15 +70,16 @@ window.onload = function () {
                         </div>
                         <section class="commentSection">
                             <div class="postedComments">
-                                ${renderComments(item.comment)}
+                                <ul class="commentList">                                    
+                                    ${commentString}
+                                </ul>
                             </div>
                             <div class="commentInput">
-                                <form method="POST">
+                                <form action="/api/article/add_comment/${item._id}" method="POST" id="commentForm">
                                     <div class="form-group">
-                                        <label>Add Comment</label>
                                         <div class="inputWrap">
-                                            <input id="commentInput" name="comment" type="text" class="" />
-                                            <button id="submitComment" type="submit">Submit</button>
+                                            <input id="comment" placeholder="Add a comment" name="comment" type="text" />
+                                            <button id="submitComment" type="submit">SUBMIT</button>
                                         </div>
                                     </div>
                                 </form>
@@ -84,58 +96,35 @@ window.onload = function () {
     }
 };
 
-function renderComments(arr) {
-    if (arr.length >= 1) {
-        arr.map((comment) => {
-            return `
-                <div>
-                    <p>${comment}</p>
-                    <hr />
-                </div>
-            `
-        });
-    } else {
-        return `<p>No comments</p><hr />`;
-    }
-}
-
 //Handle Scrape button
 $("#scrape").on("click", function () {
     $.ajax({
         method: "GET",
         url: "/api/article/scrape",
-    }).done(function (data) {
-        console.log(data)
+    }).then((data) => {
         window.location.reload();
     })
+    .catch((err) => {
+        throw err;
+    });
 });
 
-
-//Handle Delete Article button
-$("#delete-one").on("click", function () {
-    let thisId = $(this).attr("data-id");
+// delete a comment 
+function deleteComment(postId, commentId) {
+    console.log(postId, commentId);
     $.ajax({
-        method: "POST",
-        url: "/delete-one/" + thisId
-    }).done(function (data) {
-        window.location = "/saved"
+        method: 'PUT',
+        url: '/api/article/delete_comment/' + postId + '/' + commentId
     })
-});
+    .then((data) => {
+        window.location.reload();
+    })
+    .catch((err) => {
+        throw err;
+    });
+}
 
-// // handle saving an article
-// $('#save-item').on('click', () => {
-//     console.log('saved!')
-//     let thisId = $(this).attr("data-id");
-
-//     // $.ajax({
-//     //     method: "PUT",
-//     //     url: "/api/article/save/" + thisId
-//     // })
-//     // .done(function(data) {
-//     //     window.location = "/saved"
-//     // })
-// });
-
+// save an article
 function saveArticle(id) {
     let articleId = id;
     console.log('saveArticle()', articleId);
@@ -155,7 +144,6 @@ $('#clearBtn').on('click', () => {
         url: '/api/article/clear'
     })
         .then(() => {
-            console.log('deleted')
             window.location.reload();
         })
         .catch((err) => {
@@ -163,21 +151,20 @@ $('#clearBtn').on('click', () => {
         });
 });
 
-// unsave an article
-$('#unsaveArticle').on('click', function () {
-    let thisId = $(this).attr("data-id");
-    console.log('unsave article ', thisId)
+// unsave an article 
+function unsaveArticle(id) {
+    console.log('unsaveArticle()')
     $.ajax({
         method: 'PUT',
-        url: '/api/article/unsave/' + thisId
+        url: '/api/article/unsave/' + id
     })
         .then((data) => {
             window.location.reload();
         })
         .catch((err) => {
-            console.log(err);
+            throw err;
         });
-});
+}
 
 // unsave all articles
 $('#unsaveAll').on('click', function () {
@@ -189,7 +176,6 @@ $('#unsaveAll').on('click', function () {
             window.location = '/';
         })
         .catch((err) => {
-            // const error = err.response.data.serverMsg;
-            console.log(err.response.data.serverMsg);
+            throw err;
         });
 });

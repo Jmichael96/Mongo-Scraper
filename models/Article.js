@@ -20,9 +20,15 @@ const ArticleSchema = new mongoose.Schema({
     type: Boolean,
     default: false
   },
-  comment: [
+  comments: [
     {
-      type: String,
+     comment: {
+       type: String,
+     },
+     date: {
+       type: Date,
+       default: Date.now
+     }
     },
   ]
 });

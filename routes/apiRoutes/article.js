@@ -23,9 +23,10 @@ router.get('/scrape', (req, res, next) => {
           date: result.date
         });
 
-        article.save().then((data) => {
-          console.log(data);
-        })
+        article.save();
+      });
+      res.status(201).json({
+        serverMsg: 'Scraped articles successfully'
       });
     })
     .catch((err) => {
@@ -44,9 +45,9 @@ router.get('/all_articles', (req, res, next) => {
       let arr = [];
       // iterating over articles to find all non-saved articles
       for (let i = 0; i < articles.length; i++) {
-          if (articles[i].saved === false) {
-              arr.push(articles[i]);
-          }
+        if (articles[i].saved === false) {
+          arr.push(articles[i]);
+        }
       }
       res.status(201).json(arr);
     })
@@ -66,9 +67,9 @@ router.get('/all_saved', (req, res, next) => {
       let arr = [];
       // iterating over articles to find all non-saved articles
       for (let i = 0; i < articles.length; i++) {
-          if (articles[i].saved === true) {
-              arr.push(articles[i]);
-          }
+        if (articles[i].saved === true) {
+          arr.push(articles[i]);
+        }
       }
       res.status(201).json(arr);
     })
@@ -81,10 +82,11 @@ router.get('/all_saved', (req, res, next) => {
 // @route DELETE api/article/clear
 // @desc delete all the article data
 router.delete('/clear', (req, res, next) => {
-  console.log('clear()')
   db.Article.deleteMany()
     .then((dbArticles) => {
-      dbArticles.save();
+      res.status(201).json({
+        serverMsg: 'Deleted articles successfully'
+      });
     })
     .catch((err) => {
       res.status(500).json({
@@ -161,6 +163,52 @@ router.put('/unsave_all', (req, res, next) => {
     });
 });
 
+// @route PUT api/article/add_comment/:id
+// @desc Add a comment for an article
+router.post('/add_comment/:id', (req, res, next) => {
+  db.Article.findByIdAndUpdate({ _id: req.params.id })
+    .then((article) => {
+      article.comments.unshift({ comment: req.body.comment });
+      article.save();
+      console.log(article);
+      res.status(201).redirect('/saved');
+    })
+    .catch((err) => {
+      res.status(500).json({
+        serverMsg: 'There was an error adding a comment.'
+      })
+      throw err;
+    });
+});
 
+// @route PUT api/article/delete_comment/:postId/:commentId
+// @desc delete a comment
+router.put('/delete_comment/:postId/:commentId', (req, res, next) => {
+  db.Article.findByIdAndUpdate({ _id: req.params.postId })
+    .then((article) => {
+      const comment = article.comments.find((comment) =>
+        comment.id === req.params.commentId
+      );
+      if (!comment) {
+        return res.status(404).json({
+          serverMsg: 'Comment not found'
+        });
+      }
+      article.comments = article.comments.filter(
+        ({ id }) => id !== req.params.commentId
+      )
+      article.save();
+      return res.status(201).json({
+        article: article,
+        serverMsg: 'Deleted comment'
+      });
+    })
+    .catch((err) => {
+      res.status(500).json({
+        serverMsg: 'There was an error deleting a comment.'
+      })
+      throw err;
+    });
+});
 
 module.exports = router;
