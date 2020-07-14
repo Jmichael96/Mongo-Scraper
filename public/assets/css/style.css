@@ -8,10 +8,13 @@ body {
 }
 
 #navbar {
-    background-color: rgb(214, 214, 214);;
+    background-color: rgb(214, 214, 214);
+    ;
     box-shadow: 0 2px 5px rgb(158, 158, 158);
 }
+
 /* navigation buttons */
+
 .navBtn {
     margin: 0 .3rem 0 .3rem;
     background-color: rgb(12, 109, 200);
@@ -24,9 +27,11 @@ body {
     -o-transition: color .3s ease-in-out;
     transition: color .3s ease-in-out;
 }
+
 .navBtn:hover {
     color: black;
 }
+
 /* heading for the home page */
 
 #indexHeading {
@@ -42,7 +47,7 @@ body {
     box-shadow: 0 5px 10px rgb(148, 148, 148);
 }
 
-#indexHeading > h1 {
+#indexHeading>h1 {
     font-weight: 700;
     color: white;
 }
@@ -100,6 +105,7 @@ body {
 }
 
 /* no article section */
+
 .noArticles>h4 {
     text-align: center;
     margin-top: 2rem;
