@@ -28,7 +28,7 @@
     position: absolute;
     bottom: -.8rem;
     left: 50%;
-    margin-left: -48px;
+    transform: translateX(-50%);
     border: 1px solid rgb(214, 214, 214);
     background-color: rgb(214, 214, 214);
     box-shadow: 0 2px 5px rgb(122, 122, 122);
