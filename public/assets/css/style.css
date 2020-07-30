@@ -51,6 +51,7 @@ body {
     justify-content: space-around;
     align-content: center;
     margin-top: 1rem;
+    margin-bottom: 1rem;
     border-radius: 3px;
     box-shadow: 0 5px 10px rgb(148, 148, 148);
 }
