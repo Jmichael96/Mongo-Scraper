@@ -50,6 +50,8 @@ body {
 #indexHeading>h1 {
     font-weight: 700;
     color: white;
+    text-align: center;
+    padding-top: .5rem;
 }
 
 /* wrap surrounding each card */
